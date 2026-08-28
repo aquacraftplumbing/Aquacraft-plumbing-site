@@ -514,6 +514,10 @@ a:hover { color: var(--red); }
 .thank-you-card .cta-actions { justify-content: center; margin-top: 26px; }
 .thank-you-icon { width: 72px; height: 72px; margin: 0 auto 20px; display: grid; place-items: center; border-radius: 50%; background: rgba(59,143,212,.14); color: var(--navy); }
 .thank-you-icon svg { width: 38px; height: 38px; }
+.legal-page h2 { margin-top: 2.2rem; margin-bottom: .65rem; }
+.legal-page h2:first-of-type { margin-top: 1.5rem; }
+.legal-page p { max-width: none; }
+.error-code { color: var(--red); font-family: "Sora", sans-serif; font-size: clamp(4rem, 14vw, 8rem); font-weight: 800; line-height: .9; letter-spacing: -.06em; margin-bottom: 22px !important; }
 @media (min-width: 800px) {
   .contact-form-wrap { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
   .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
