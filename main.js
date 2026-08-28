@@ -50,9 +50,11 @@
     eventDetails.page_path = window.location.pathname;
 
     // Keep a local event hook available for testing or another analytics tool.
-    document.dispatchEvent(new CustomEvent("aquacraft:tracking", {
-      detail: { name: name, parameters: eventDetails }
-    }));
+    if (typeof window.CustomEvent === "function") {
+      document.dispatchEvent(new window.CustomEvent("aquacraft:tracking", {
+        detail: { name: name, parameters: eventDetails }
+      }));
+    }
 
     // No information leaves the site unless Google Analytics has been installed.
     if (typeof window.gtag === "function") {
