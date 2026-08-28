@@ -620,6 +620,8 @@ a:hover { color: var(--red); }
 .footer-bottom { border-top: 1px solid var(--line); }
 .footer-bottom .container { padding-top: 20px; padding-bottom: 20px; }
 .footer-bottom p { margin: 0; font-size: .85rem; color: var(--ink-soft); }
+.footer-bottom a { color: var(--navy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.footer-bottom a:hover, .footer-bottom a:focus-visible { color: var(--red); }
 
 /* ---------- Sticky mobile Call/Text bar ---------- */
 .mobile-bar {
@@ -636,7 +638,7 @@ a:hover { color: var(--red); }
   box-shadow: 0 -6px 22px rgba(27,42,74,.10);
 }
 .mobile-bar .btn { flex: 1 1 0; padding: 15px 8px; font-size: 1.04rem; }
-.mobile-bar .btn-text { background: var(--blue); color: #fff; border-color: var(--blue); }
+.mobile-bar .btn-text { background: var(--navy); color: #fff; border-color: var(--navy); }
 .mobile-bar .btn-text:hover, .mobile-bar .btn-text:active { background: var(--red); border-color: var(--red); }
 
 /* ===========================================================
@@ -708,7 +710,7 @@ a:hover { color: var(--red); }
   background-color: var(--navy-900);
   background-image:
     linear-gradient(135deg, rgba(15,24,48,.88) 0%, rgba(20,34,60,.74) 100%),
-    url("images/work.jpg");
+    url("images/leak-repair.jpg");
   background-size: cover;
   background-position: center;
   color: #eaf1fb;
