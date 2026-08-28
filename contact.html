@@ -122,6 +122,55 @@
       </div>
     </section>
 
+    <!-- ============ CONTACT FORM ============ -->
+    <section class="section" aria-labelledby="contact-form-title">
+      <div class="container contact-form-wrap" data-reveal>
+        <div class="contact-form-intro">
+          <p class="eyebrow">Request service</p>
+          <h2 id="contact-form-title">Tell us how we can help</h2>
+          <p>Send the details below for non-urgent requests. For an urgent plumbing problem, call or text <a href="tel:7077573838">707-757-3838</a>. Same-day and emergency assistance is subject to availability.</p>
+        </div>
+        <form class="contact-form" name="service-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="service-request" />
+          <p class="form-honeypot" aria-hidden="true">
+            <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <div class="form-grid">
+            <label>
+              Name <span aria-hidden="true">*</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Phone <span aria-hidden="true">*</span>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+            <label>
+              Service needed
+              <select name="service">
+                <option value="">Choose a service</option>
+                <option>Plumbing repair</option>
+                <option>Water heater</option>
+                <option>Drain or sewer</option>
+                <option>Fixture installation</option>
+                <option>Backflow service</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="form-full">
+              How can we help? <span aria-hidden="true">*</span>
+              <textarea name="message" rows="6" required></textarea>
+            </label>
+          </div>
+          <button class="btn btn-primary btn-lg" type="submit">Send Service Request</button>
+          <p class="form-note">By submitting this form, you agree that AQUACRAFT PLUMBING INC. may contact you about your request.</p>
+        </form>
+      </div>
+    </section>
+
     <!-- ============ HOURS / AREA / SOCIAL ============ -->
     <section class="section">
       <div class="container">
@@ -129,7 +178,7 @@
           <div class="info-card" data-reveal>
             <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Business Hours</h3>
             <p><strong>After-hours and weekend service by appointment.</strong></p>
-            <p>We work around your schedule. For plumbing emergencies, contact us and we'll make every effort to assist you as quickly as possible.</p>
+            <p>We work around your schedule. Same-day and emergency assistance is subject to availability.</p>
           </div>
           <div class="info-card" data-reveal>
             <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Service Area</h3>
