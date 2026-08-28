@@ -5,4 +5,10 @@
   <url><loc>https://aquacraftplumbing.com/about</loc><priority>0.6</priority></url>
   <url><loc>https://aquacraftplumbing.com/contact</loc><priority>0.8</priority></url>
   <url><loc>https://aquacraftplumbing.com/privacy</loc><priority>0.3</priority></url>
+  <url><loc>https://aquacraftplumbing.com/drain-cleaning</loc><priority>0.7</priority></url>
+  <url><loc>https://aquacraftplumbing.com/water-heaters</loc><priority>0.7</priority></url>
+  <url><loc>https://aquacraftplumbing.com/fixture-installation</loc><priority>0.7</priority></url>
+  <url><loc>https://aquacraftplumbing.com/leak-repair</loc><priority>0.7</priority></url>
+  <url><loc>https://aquacraftplumbing.com/sewer-services</loc><priority>0.7</priority></url>
+  <url><loc>https://aquacraftplumbing.com/backflow-services</loc><priority>0.7</priority></url>
 </urlset>
