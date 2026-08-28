@@ -294,6 +294,7 @@ a:hover { color: var(--red); }
 .service-card-link:focus-visible { text-decoration: underline; }
 
 .service-faq { background: var(--off-white); }
+.thank-you-steps { max-width: 620px; margin: 1.4rem auto; text-align: left; }
 
 /* ---------- Feature list (why choose) ---------- */
 .feature-grid {
