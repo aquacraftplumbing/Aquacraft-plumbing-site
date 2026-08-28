@@ -783,6 +783,12 @@ a.rating-banner:hover, a.rating-banner:focus-visible {
   object-fit: contain;
 }
 .svc-body .card-icon { margin-bottom: 12px; }
+.service-link { margin-top: 14px; width: fit-content; }
+.service-detail { align-items: center; }
+.service-detail .svc-body p { font-size: 1.05rem; }
+.check-list { margin: 20px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.check-list li { position: relative; padding-left: 28px; color: var(--ink-soft); }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 800; }
 @media (min-width: 800px) {
   .svc-row { grid-template-columns: 360px 1fr; gap: 32px; align-items: center; }
   .svc-row:nth-child(even) { grid-template-columns: 1fr 360px; }
