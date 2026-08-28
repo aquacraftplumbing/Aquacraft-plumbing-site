@@ -1,6 +1,57 @@
 /* AQUACRAFT PLUMBING INC. — minimal vanilla JS (no dependencies) */
 (function () {
   "use strict";
+  var measurementId = "G-G5SC74V0T3";
+  var storageKey = "aquacraft_analytics_choice";
+
+  function loadAnalytics() {
+    if (window.aquacraftAnalyticsLoaded) return;
+    window.aquacraftAnalyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, { anonymize_ip: true });
+    var tag = document.createElement("script");
+    tag.async = true;
+    tag.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(measurementId);
+    document.head.appendChild(tag);
+  }
+
+  function saveChoice(choice) {
+    try { window.localStorage.setItem(storageKey, choice); } catch (error) {}
+  }
+  function getChoice() {
+    try { return window.localStorage.getItem(storageKey); } catch (error) { return null; }
+  }
+  function showAnalyticsChoice() {
+    if (document.querySelector(".analytics-choice")) return;
+    var panel = document.createElement("aside");
+    panel.className = "analytics-choice";
+    panel.setAttribute("aria-label", "Analytics preferences");
+    panel.innerHTML = '<div><strong>Optional website analytics</strong><p>With your permission, we use Google Analytics to understand visits and contact-button use. <a href="privacy.html">Privacy details</a></p></div><div class="analytics-actions"><button class="btn btn-ghost" type="button" data-analytics-decline>Decline</button><button class="btn btn-primary" type="button" data-analytics-accept>Accept</button></div>';
+    document.body.appendChild(panel);
+    panel.querySelector("[data-analytics-accept]").addEventListener("click", function () {
+      saveChoice("accepted"); panel.remove(); loadAnalytics();
+    });
+    panel.querySelector("[data-analytics-decline]").addEventListener("click", function () {
+      saveChoice("declined"); panel.remove();
+    });
+  }
+
+  window.aquacraftShowAnalyticsChoice = showAnalyticsChoice;
+  if (getChoice() === "accepted") loadAnalytics();
+  else if (getChoice() !== "declined") showAnalyticsChoice();
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest("[data-analytics-settings]")) return;
+    event.preventDefault();
+    try { window.localStorage.removeItem(storageKey); } catch (error) {}
+    showAnalyticsChoice();
+  });
+})();
+
+(function () {
+  "use strict";
 
   // --- Mobile navigation toggle ---
   var toggle = document.querySelector(".nav-toggle");
