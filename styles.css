@@ -295,6 +295,18 @@ a:hover { color: var(--red); }
 
 .service-faq { background: var(--off-white); }
 .thank-you-steps { max-width: 620px; margin: 1.4rem auto; text-align: left; }
+.analytics-choice {
+  position: fixed; z-index: 1000; left: 16px; right: 16px; bottom: 76px;
+  display: flex; flex-direction: column; gap: 16px; max-width: 760px;
+  margin: 0 auto; padding: 20px; color: var(--ink); background: var(--white);
+  border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+}
+.analytics-choice p { margin: .35rem 0 0; font-size: .92rem; }
+.analytics-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (min-width: 700px) {
+  .analytics-choice { bottom: 22px; flex-direction: row; align-items: center; justify-content: space-between; }
+  .analytics-actions { flex: none; }
+}
 
 /* ---------- Feature list (why choose) ---------- */
 .feature-grid {
