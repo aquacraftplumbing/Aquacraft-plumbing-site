@@ -41,6 +41,66 @@
   }
 })();
 
+/* --- Lead tracking hooks (activate automatically when Google Analytics is connected) --- */
+(function () {
+  "use strict";
+
+  function sendEvent(name, details) {
+    var eventDetails = details || {};
+    eventDetails.page_path = window.location.pathname;
+
+    // Keep a local event hook available for testing or another analytics tool.
+    document.dispatchEvent(new CustomEvent("aquacraft:tracking", {
+      detail: { name: name, parameters: eventDetails }
+    }));
+
+    // No information leaves the site unless Google Analytics has been installed.
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, eventDetails);
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    var href = link.getAttribute("href") || "";
+
+    if (href.indexOf("tel:") === 0) {
+      sendEvent("phone_call_click", { link_location: link.closest("header") ? "header" : link.closest(".mobile-bar") ? "mobile_bar" : "page" });
+    } else if (href.indexOf("sms:") === 0) {
+      sendEvent("text_message_click", { link_location: link.closest(".mobile-bar") ? "mobile_bar" : "page" });
+    }
+  });
+
+  var sourceInput = document.querySelector("[data-source-page]");
+  if (sourceInput) sourceInput.value = document.referrer || window.location.pathname;
+
+  var requestForm = document.querySelector('form[name="service-request"]');
+  if (requestForm) {
+    requestForm.addEventListener("submit", function () {
+      var service = requestForm.querySelector('[name="service"]');
+      var selectedService = service && service.value ? service.value : "Not selected";
+      try { window.sessionStorage.setItem("aquacraft_requested_service", selectedService); } catch (error) {}
+      sendEvent("service_request_submit", { service: selectedService });
+    });
+  }
+
+  if (window.location.pathname.replace(/\.html$/, "") === "/thank-you") {
+    var requestedService = "Not selected";
+    try {
+      requestedService = window.sessionStorage.getItem("aquacraft_requested_service") || requestedService;
+      window.sessionStorage.removeItem("aquacraft_requested_service");
+    } catch (error) {}
+    sendEvent("generate_lead", { service: requestedService, method: "netlify_form" });
+  }
+
+  var trackedServicePages = ["/drain-cleaning", "/water-heaters", "/fixture-installation", "/leak-repair", "/sewer-services", "/backflow-services"];
+  var cleanPath = window.location.pathname.replace(/\.html$/, "");
+  if (trackedServicePages.indexOf(cleanPath) !== -1) {
+    sendEvent("view_service", { service_page: cleanPath.slice(1) });
+  }
+})();
+
 /* --- Service-specific FAQs and matching search-engine structured data --- */
 (function () {
   "use strict";
