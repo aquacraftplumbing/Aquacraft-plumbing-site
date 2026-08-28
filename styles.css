@@ -281,6 +281,19 @@ a:hover { color: var(--red); }
 .card-icon svg { width: 28px; height: 28px; }
 .card h3 { margin-bottom: .4rem; }
 .card p { margin: 0; font-size: .98rem; }
+.service-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: 1rem;
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+}
+.service-card-link:hover,
+.service-card-link:focus-visible { text-decoration: underline; }
+
+.service-faq { background: var(--off-white); }
 
 /* ---------- Feature list (why choose) ---------- */
 .feature-grid {
